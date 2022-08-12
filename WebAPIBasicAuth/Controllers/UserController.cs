@@ -22,5 +22,13 @@ namespace WebAPIBasicAuth.Controllers
             };
             return Ok(await Task.Run(()=>userList));
         }
+
+        [HttpGet]
+        [Route("UserInfo")]
+        public IActionResult UserInfo()
+        {
+            var user = HttpContext.User.Identity.Name;
+            return Ok(user);
+        }
     }
 }
