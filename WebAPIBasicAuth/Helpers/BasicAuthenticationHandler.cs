@@ -43,7 +43,7 @@ namespace WebAPIBasicAuth.Helpers
             try
             {
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
-                var credentials = Encoding.UTF8.GetString(Convert.FromBase64String(authHeader.Parameter)).Split(':');
+                string[] credentials = Encoding.UTF8.GetString(Convert.FromBase64String(authHeader.Parameter)).Split(':');
                 var username = credentials.FirstOrDefault();
                 var password = credentials.LastOrDefault();
 
